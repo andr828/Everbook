@@ -1,0 +1,21 @@
+%html
+  %head
+    %title Pin Board
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta(name='viewport' content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+  %body
+    - if user_signed_in?
+      = render "shared/header"
+    - unless flash[:notice].try(:empty?)
+      .notice
+        = flash[:notice] 
+
+    .container
+      = yield
+
+    = render 'pins/modal'
+
+
+

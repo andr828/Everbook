@@ -1,0 +1,65 @@
+.page.edit-album
+
+  %a.back < Go back and chose more
+
+  .action-button
+    %a#finish{href: '#'} Upload photos
+
+
+  #pins.transitions-enabled
+    = form_tag('/uploader/save', class: 'pin-form ') do
+      .box.wrapper.controls
+        .panel.panel-default
+          .panel-content
+            .panel-body
+              .wrapper
+                -#= form_tag('/uploader/save', method: 'post', class: 'form-horizontal album-form') do
+
+                .form-group
+                  %label.control-label{for: 'album_id'} Add to album
+                  = select('album', 'id', @albums.collect {|album| [album.title, album.id]}, {}, {class: 'form-control'})
+
+                .form-group
+                  %a#new-album{href: '#'} Create new
+                  %input#new-album-flag{type: 'hidden', name: 'newAlbum', value: 'false'}
+
+                #new-album-form.hidden
+                  .form-group
+                    %label.control-label{for: 'album-title'} Add title
+                    %input.form-control#album-title{type: 'text', name: 'albumTitle', placeholder: 'Title'}
+
+                  .form-group
+                    %label.control-label{for: 'album-description'} Add description
+                    %textarea.form-control#album-description{type: 'text', name: 'albumDescription', placeholder: 'Description'}
+
+                -#.form-group
+                -#  %label.control-label Edit hashtags
+                -#  %div#global-hashtags
+                    -#%span.hash-tag #summer2015 <span class="delete">×</span>
+                    -#%span.hash-tag #funny <span class="delete">×</span>
+                    -#%span.hash-tag #rob and bob rules <span class="delete">×</span>
+                    %input.form-control#add-hashtag{type: 'text', name: 'hashtag', placeholder: 'Add new #hashtag'}
+
+
+      - @pins.each do |pin|
+        .box.panel.panel-default.pin.panel-pin
+          %img.remove-button{src: '/images/remove_button.svg', 'data-id' => pin.id}
+          .panel-content
+            .photo-wrap
+              = image_tag pin.image.url(:medium), class: "image", 'data-toggle'=>"modal", 'data-target'=>"#pinModal"
+            .panel-footer
+              .form-group.has-feedback
+                %span.glyphicon.glyphicon-pencil.form-control-feedback(aria-hidden="true")
+                %input.form-control.title{placeholder: 'title', name: "pins[#{pin.id}][title]"}
+              .form-group.has-feedback
+                %span.glyphicon.glyphicon-pencil.form-control-feedback(aria-hidden="true")
+                %input.form-control.description{placeholder: 'description', name: "pins[#{pin.id}][description]"}
+              .form-group.tags-group
+                = text_field "pins[#{pin.id}]", :tag_list, { value: pin.tag_list.join(','), class: 'form-control', placeholder: '#tags, #separated by comma' }
+
+  .center-block
+    %a.back-to-top /\ Back to top
+
+:coffee
+  window.files = #{@pins.collect(&:id)}
+  new App.UploaderFinish el: $('.page')

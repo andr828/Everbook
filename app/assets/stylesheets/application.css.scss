@@ -1,0 +1,28 @@
+/*
+ *= require font-awesome
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "jquery.fileupload";
+@import "jquery.fileupload-ui";
+@import "dropzone";
+@import "albums";
+@import "explore";
+@import "uploader";
+@import "fonts";
+
+$icon-background-color: white;
+// $icon-background-color: #f05323;
+
+.hide {
+  display: none;
+}
+
+.orange{
+  color: #f05323;
+}
+
+@import "nav";
+@import "main";
+@import "modal";
+@import "responsive";

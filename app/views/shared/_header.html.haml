@@ -1,0 +1,65 @@
+%nav.navbar.navbar-everbook
+  .container
+    .navbar-header
+      %button.navbar-toggle{'type'=>"button", 'data-toggle'=>"collapse", 'data-target'=>"#navbar", 'aria-expanded'=>"true", 'aria-controls'=>"navbar"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand=link_to t('app'), root_path
+    #navbar.navbar-collapse.collapse
+      %form.navbar-form.navbar-left{role: 'search'}
+        .form-group
+          .input-group
+            %span.input-group-addon.btn.logo
+              %span.orange &nbsp;
+            %input.form-control{type: 'text', placeholder: 'Search'}
+            %span.input-group-addon.btn
+              %span.fa.fa-search.orange
+      %ul.nav.navbar-nav.navbar-left
+        %li.responsive= link_to "EXPLORE", '/explore'
+        %li.responsive= link_to "MY ALBUMS", '/albums'
+        %li.responsive= link_to "INVITE", new_user_invitation_path, class: 'orange'
+
+        %li.small-screen
+          = link_to "UPLOAD", "/uploader"
+        %li.small-screen
+          = link_to "EDIT PROFILE", "#"
+        %li.small-screen
+          = link_to "CHANGE PASSWORD", security_change_password_user_path(current_user)
+        %li.small-screen
+          = link_to "MANAGE PAYMENT METHODS", "#"
+        %li.small-screen
+          = link_to "PURCHASE HISTORY", "#"
+        %li.small-screen
+          = link_to "SETTINGS", "#"
+        %li.small-screen
+          = link_to "Sign Out", destroy_user_session_path, method: :delete
+      %ul.nav.navbar-nav.navbar-right
+        %li.user-menu
+          %a.dropdown-toggle{href: "#", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded' => "false"}
+            %span.avatar-mini
+              = image_tag current_user.try(:avatar), width: 40, height: 40 
+            %span.welcome Welcome #{current_user.try(:first_name)}
+            %span.caret
+          %ul.dropdown-menu
+            %li.responsive
+              %a{href: "/explore"}  Explore
+            %li.responsive
+              %a{href: "/albums"}  My albums
+            %li.responsive
+              = link_to "Invite", new_user_invitation_path, class: 'orange'
+            %li
+              = link_to "Upload", "/uploader"
+            %li
+              = link_to "Edit Profile", "#"
+            %li
+              = link_to "Change Password", security_change_password_user_path(current_user)
+            %li
+              = link_to "Manage Payment Methods", "#"
+            %li
+              = link_to "Purchase History", "#"
+            %li
+              = link_to "Settings", "#"
+            %li
+              = link_to "Sign Out", destroy_user_session_path, method: :delete, id: "sign_out"

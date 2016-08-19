@@ -1,0 +1,68 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  app: "Kidio"
+  welcome: "Welcome to the Kidio"
+  welcome_p: "Upload photos by drag and drop ans start using it right now!"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+  time:
+    formats:
+      default: "%d %h %Y %I:%M%p"
+  failure:
+    apikey:
+      expired: "This token already expired. Please re-sign in to create new token."
+      invalid: "This token was invalid."
+    user:
+      not_found: "User was not found."
+    invite:
+      email_missing: "Please input email first."
+    oauth:
+      token_missing: "Action forbidden. Token was missing."
+  success:
+    pin:
+      destroy: "Successfully destroy pin"
+      create: "Successfully created pin"
+      updated: "Pin was Successfully updated!"
+    album:
+      create: "Album was Successfully created!"
+      updated: "Album was Successfully updated!"
+      destroy: "Album was Successfully destroyed!"
+    comment:
+      create: "Comment was Successfully created!"
+      destroy: "Comment was Successfully destroyed!"
+    family_bond:
+      create: "Family was Successfully created!"
+      destroy: "Family was Successfully destroyed!"
+    oauth:
+      sign_in: "Signed in Successfully."
+    invitation:
+      success: "Successfully inviting people."
+  landing:
+    header: "Remember every moment"
+    p: "Kidio is the best way to organize your family memories"
+    terms: "Creating an account means you’re okay with Kidios'"
+  albums:
+    dropspan: "Drop files here"
