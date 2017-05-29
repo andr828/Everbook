@@ -45,6 +45,10 @@ class PinsController < ApplicationController
     
   end
 
+  def new
+    @pin = current_user.pins.build
+  end
+
   def update
     respond_to do |format|
       if @pin.update(pin_params)
@@ -55,10 +59,6 @@ class PinsController < ApplicationController
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def new
-    @pin = current_user.pins.build
   end
 
   def create
