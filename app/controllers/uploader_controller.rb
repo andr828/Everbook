@@ -26,11 +26,6 @@ class UploaderController < ApplicationController
     end
   end
 
-  def finish
-    @albums = current_user.albums
-    @pins = Pin.where(id: params[:pins])
-  end
-
   # POST /uploader/save
   def save
     if params[:newAlbum] == 'true'
@@ -62,5 +57,11 @@ class UploaderController < ApplicationController
 
     redirect_to '/albums'
   end
+
+  def finish
+    @albums = current_user.albums
+    @pins = Pin.where(id: params[:pins])
+  end
+
 
 end
