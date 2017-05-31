@@ -10,11 +10,9 @@ RSpec.describe UsersController, type: :controller do
       before(:each) do
         get :show, {id: subject.current_user.id}
       end
-
       it "will create instance @user" do
         expect(assigns(:user)).not_to be_nil
       end
-
       it "and render template show" do
         expect(response).to render_template("show")
       end
