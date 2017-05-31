@@ -48,11 +48,6 @@ class UploaderController < ApplicationController
       pin
     end
 
-    @pins.each do |pin|
-      @album.pins << pin
-      current_user.pins << pin
-    end
-
     @album.save
 
     redirect_to '/albums'
