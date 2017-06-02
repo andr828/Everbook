@@ -34,7 +34,6 @@ gem 'omniauth-facebook'
 gem "koala" # Facebook Api
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '< 2.0'
-gem 'masonry-rails'
 gem "font-awesome-rails"
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "jquery-validation-rails"
