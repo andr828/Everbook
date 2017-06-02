@@ -27,20 +27,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "GET #form_change_password" do
-    before(:each) do
-      get :form_change_password, {id: subject.current_user.id}
-    end
-
-    it "will create instance @user" do
-      expect(assigns(:user)).not_to be_nil  
-    end
-
-    it "and render template form_change_password" do
-      expect(response).to render_template("form_change_password")
-    end
-  end
-
   describe "PATCH #change_password" do
     let(:invalid_attr) {{current_password: "12312412", password: "12345678", password_confirmation: "8888"}}
     let(:valid_attr) {{current_password: "11223344", password: "12345678", password_confirmation: "12345678"}}
