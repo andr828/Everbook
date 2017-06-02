@@ -4,5 +4,4 @@ FactoryGirl.define do
     association :user
     association :pin
   end
-
 end
