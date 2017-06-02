@@ -43,13 +43,6 @@ RSpec.describe UsersController, type: :controller do
           expect(subject).to redirect_to(root_path)
         end
       end
-      
-      context "when params invalid" do
-        it "will render template form_change_password" do
-          patch :change_password, {user: invalid_attr, id: subject.current_user.id}, {}
-          expect(response).to render_template("form_change_password")
-        end
-      end
 
     end
   end
