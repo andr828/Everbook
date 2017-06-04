@@ -27,13 +27,6 @@ RSpec.describe PinsController, type: :controller do
         post :create, {pin: invalid_attr}
       end
       
-      it "will fails create Pin" do
-        expect(assigns(:pin).id).to be_nil
-      end
-
-      it "and render action :new" do
-        expect(response).to render_template("new")
-      end
     end 
 
   end
