@@ -10,9 +10,6 @@ FactoryGirl.define do
       pin.image = File.new(Rails.root + 'spec/fixtures/images/example1.jpg')
     end
 
-    after(:create) do |pin|
-      pin.image = File.new(Rails.root + 'spec/fixtures/images/example1.jpg')
-    end
   end
 
 end
