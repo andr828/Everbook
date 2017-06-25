@@ -8,4 +8,14 @@ FactoryGirl.define do
     uid nil
   end
 
+  factory :identity_invalid, parent: :identity do
+    provider nil
+    uid nil
+  end
+
+  factory :identity_invalid, parent: :identity do
+    provider nil
+    uid nil
+  end
+
 end
