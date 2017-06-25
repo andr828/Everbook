@@ -7,10 +7,6 @@ FactoryGirl.define do
     after(:build) do |album|
       album.pins.build({image: File.new(Rails.root + 'spec/fixtures/images/example1.jpg')})
     end
-
-    after(:create) do |album|
-      album.pins.create({image: File.new(Rails.root + 'spec/fixtures/images/example1.jpg')})
-    end
   end
 
 end
