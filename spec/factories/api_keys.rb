@@ -8,4 +8,12 @@ FactoryGirl.define do
     expired_date Date.yesterday
   end
 
+  factory :api_expired, parent: :api_key do
+    expired_date Date.yesterday
+  end
+  
+  factory :api_expired, parent: :api_key do
+    expired_date Date.yesterday
+  end
+
 end
