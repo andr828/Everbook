@@ -38,6 +38,11 @@ RSpec.describe FamilyBondsController, type: :controller do
         post :create, {:family_bond => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
+
+      it "re-renders the 'new' template" do
+        post :create, {:family_bond => invalid_attributes}, valid_session
+        expect(response).to render_template("new")
+      end
     end
   end
 end
