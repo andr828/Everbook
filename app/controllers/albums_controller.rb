@@ -12,11 +12,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # GET /albums/1/edit
-  def edit
-  end
-
-  # GET /albums/1
+    # GET /albums/1
   # GET /albums/1.json
   def show
   end
@@ -25,6 +21,12 @@ class AlbumsController < ApplicationController
   def new
     @album = Album.new
   end
+
+  # GET /albums/1/edit
+  def edit
+  end
+
+
 
   # POST /albums
   # POST /albums.json
