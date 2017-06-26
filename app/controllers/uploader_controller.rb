@@ -17,13 +17,6 @@ class UploaderController < ApplicationController
       @pin
     }
 
-    respond_to do |format|
-      format.json { render json: {pin: {
-          id: @pin.id,
-          url: @pin.image.url(:medium),
-          title: @pin.image_file_name + ' – ' + (@pin.image_file_size.to_d / 1024).round(2).to_s + ' KB'
-      }, status: :success}, status: :created }
-    end
   end
 
   # POST /uploader/save
@@ -46,6 +39,11 @@ class UploaderController < ApplicationController
       pin.tag_list = pin_params[1]['tag_list']
       pin.save
       pin
+    end
+
+    @pins.each do |pin|
+      @album.pins << pin
+      current_user.pins << pin
     end
 
     @album.save
