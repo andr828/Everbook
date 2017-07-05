@@ -15,4 +15,8 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:text, :pin_id)
     end
+
+    def notification_params
+      params.require(:comment).permit(:text, :pin_id)
+    end
 end
