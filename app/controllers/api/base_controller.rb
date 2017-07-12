@@ -27,6 +27,15 @@ module Api
         render json: {error: error.message}, status: :not_found and return
       end
 
+    private
+      def tags_list
+        params[:tags_list].to_s.split("/")
+      end
+
+      def record_not_found(error)
+        render json: {error: error.message}, status: :not_found and return
+      end
+
     protected
 
       def authenticate_token
