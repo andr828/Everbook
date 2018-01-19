@@ -17,6 +17,14 @@ class FamilyBondsController < ApplicationController
     end
   end
 
+  def destroy
+    if @family_bond.save
+      redirect_to family_bonds_path
+    else
+      render :new
+    end
+  end
+
   private
     def family_bond_params
       params.require(:family_bond).permit(:family_member_two_id)
