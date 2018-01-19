@@ -169,6 +169,13 @@ body {
         background-position: 50% 20%;
     }
 }
+
+@media (max-width: 900px) {
+    .design-back {
+        background-image: url('../images/tablet_back.jpg');
+        background-position: 50% 20%;
+    }
+}
 @media (max-width: 767px) {
     .design-back .banner-text h1 {
         font-size: 33px;
