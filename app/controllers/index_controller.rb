@@ -3,7 +3,6 @@ class IndexController < ApplicationController
   def index
     @albums = Album.where(user_id: current_user.family_ids + [current_user.id])
                 .order('albums.created_at DESC')
-
     @pins = @albums.reduce([]) {|n, album| album.pins + n}
                 .sort_by!(&:updated_at).reverse!
     @tags = @albums.tag_counts_on(:tags)
@@ -17,7 +16,6 @@ class IndexController < ApplicationController
     flash[:notice] = "An invite was sent to #{@friendship_user.first_name} #{@friendship_user.last_name}"
     redirect_to action: "index"
   end
-
 
   def add_membership
     @friendship_user = User.find(params[:friend_id])
