@@ -39,20 +39,20 @@ module AlbumsHelper
   end
 
   private
-    def get_limit_for_album(album)
-      limit = (album.pins_for_displaying.count / 3).to_i >= 2 ? 6 : 3
-      [limit, album.pins_for_displaying.count].min
-    end
+  
+  def get_limit_for_album(album)
+    limit = (album.pins_for_displaying.count / 3).to_i >= 2 ? 6 : 3
+    [limit, album.pins_for_displaying.count].min
+  end
 
-    def get_remaining_pins_quantity(album)
-      pins_count = album.pins_for_displaying.count
-      if pins_count > 6
-        pins_count - 6
-      elsif pins_count > 3 && pins_count < 6
-        pins_count - 3
-      else
-        0
-      end
-
+  def get_remaining_pins_quantity(album)
+    pins_count = album.pins_for_displaying.count
+    if pins_count > 6
+      pins_count - 6
+    elsif pins_count > 3 && pins_count < 6
+      pins_count - 3
+    else
+      0
     end
+  end
 end
