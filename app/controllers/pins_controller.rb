@@ -41,10 +41,6 @@ class PinsController < ApplicationController
     end
   end
 
-  def edit
-    
-  end
-
   def new
     @pin = current_user.pins.build
   end
@@ -62,7 +58,7 @@ class PinsController < ApplicationController
       end
     end
   end
-  
+
   def update
     respond_to do |format|
       if @pin.update(pin_params)
