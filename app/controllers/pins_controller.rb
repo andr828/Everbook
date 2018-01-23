@@ -12,11 +12,6 @@ class PinsController < ApplicationController
     @tags = @pins.tag_counts_on(:tags)  
   end
 
-
-  def show
-    render :show, layout: false 
-  end
-
   def remove_tag
     @pin = Pin.find params[:id]
     @pin.tag_list.remove(params[:tag])
@@ -30,6 +25,10 @@ class PinsController < ApplicationController
         format.html {redirect_to :edit}
       end
     end
+  end
+  
+  def show
+    render :show, layout: false 
   end
 
   def destroy
@@ -70,8 +69,6 @@ class PinsController < ApplicationController
       end
     end
   end
-
-
 
   private
 
