@@ -24,9 +24,17 @@ class PinsController < ApplicationController
         format.json {render json: @pin.errors, status: :unprocessable_entity}
         format.html {redirect_to :edit}
       end
+
+      if @pin.save
+        format.json {render json: {status: :ok, location: @pin}}
+        format.html {redirect_to @pin, notice: 'Tag was successfully removed.'}
+      else
+        format.json {render json: @pin.errors, status: :unprocessable_entity}
+        format.html {redirect_to :edit}
+      end
     end
   end
-  
+
   def show
     render :show, layout: false 
   end
