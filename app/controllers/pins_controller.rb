@@ -52,6 +52,18 @@ class PinsController < ApplicationController
     @pin = current_user.pins.build
   end
 
+  def update
+    respond_to do |format|
+      if @pin.update(pin_params)
+        format.html { redirect_to @pin, notice: "Pin was Successfully updated!" }
+        format.json { render json: {status: :ok, location: @pin}}
+      else
+        format.html { render 'edit' }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def create
     @pin = Pin.new(pin_params)
 
@@ -66,17 +78,7 @@ class PinsController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if @pin.update(pin_params)
-        format.html { redirect_to @pin, notice: "Pin was Successfully updated!" }
-        format.json { render json: {status: :ok, location: @pin}}
-      else
-        format.html { render 'edit' }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
 
   private
 
