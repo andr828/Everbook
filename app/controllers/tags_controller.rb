@@ -42,10 +42,6 @@ class TagsController < ApplicationController
     end
   end
 
-  def requests
-    @pending_requests = current_user.pending_invited_by
-  end
-
   def destroy
     user = User.find_by_id(params[:id])
     if current_user.remove_friendship user
