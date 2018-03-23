@@ -6,10 +6,6 @@ class FriendshipsController < ApplicationController
     @friends = current_user.friends
   end
 
-  def new
-    @users = User.all :conditions => ["id != ?", current_user.id]
-  end
-
   def create
     invitee = User.find_by_id(params[:user_id])
     if current_user.invite invitee
@@ -26,6 +22,10 @@ class FriendshipsController < ApplicationController
     else
       redirect_to new_friend_path, :notice => "Sorry! Could not confirm friend!"
     end
+  end
+
+  def new
+    @users = User.all :conditions => ["id != ?", current_user.id]
   end
 
   def requests
