@@ -56,9 +56,5 @@ class UploaderController < ApplicationController
     @pins = Pin.where(id: params[:pins])
   end
 
-  def start
-    @albums = current_user.albums
-    @pins = Pin.where(id: params[:pins])
-  end
 
 end
