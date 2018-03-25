@@ -33,15 +33,6 @@ class TagsController < ApplicationController
     @pending_invites = current_user.pending_invited
   end
 
-  def update
-    inviter = User.find_by_id(params[:id])
-    if current_user.approve inviter
-      redirect_to new_friend_path, :notice => "Successfully confirmed friend!"
-    else
-      redirect_to new_friend_path, :notice => "Sorry! Could not confirm friend!"
-    end
-  end
-
   def destroy
     user = User.find_by_id(params[:id])
     if current_user.remove_friendship user

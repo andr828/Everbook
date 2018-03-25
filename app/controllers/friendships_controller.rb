@@ -28,7 +28,6 @@ class FriendshipsController < ApplicationController
     @users = User.all :conditions => ["id != ?", current_user.id]
   end
 
-
   def requests
     @pending_requests = current_user.pending_invited_by
   end
