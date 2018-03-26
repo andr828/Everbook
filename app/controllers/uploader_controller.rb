@@ -19,17 +19,6 @@ class UploaderController < ApplicationController
 
   end
 
-  def download
-    # The upload is not multiple
-    @pins = params[:files].map {|file|
-      @pin = Pin.new
-      @pin.image = file
-      @pin.save
-      @pin
-    }
-
-  end
-
   # POST /uploader/save
   def save
     if params[:newAlbum] == 'true'
