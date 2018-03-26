@@ -16,7 +16,6 @@ class UploaderController < ApplicationController
       @pin.save
       @pin
     }
-
   end
 
   # POST /uploader/save
